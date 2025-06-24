@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, UseGuards } from "@nestjs/common";
 import { ProductService } from "./products.service";
-import { CreateProductDto } from "./dto/create - products.dto";
 import { AuthGuard } from "src/guard/auth.guard";
+import { CreateProductDto } from "./dto/create-products.dto";
 
 @Controller('products')
 export class ProductsController{
