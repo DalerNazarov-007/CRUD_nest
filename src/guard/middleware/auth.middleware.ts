@@ -13,7 +13,10 @@ export class AuthMiddleware implements NestMiddleware {
 
     const [type, token] = authHeader.split(' ');
     if (type !== 'Bearer' || !token) throw new UnauthorizedException('Invalid token format');
-      const decoded = jwt.verify(token, process.env.JWT_ACCESS_SECRET_KEY);
+      if (!process.env.JWT_ACCESS_SECRET_KEY) {
+        throw new UnauthorizedException('JWT secret key not configured');
+      }
+      const decoded = jwt.verify(token, process.env.JWT_ACCESS_SECRET_KEY as string);
       req['user'] = decoded;
       next();
   }
