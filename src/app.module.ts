@@ -1,16 +1,22 @@
-import { Module } from '@nestjs/common';
-import { ProductsController } from './products/products.controller';
-import { ProductService } from './products/products.service';
-import { productModule } from './products/products.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { Module } from '@nestjs/common';
 import { UserModule } from './user/user.module';
-import { JwtModule } from '@nestjs/jwt';
-
-
 
 @Module({
-  imports: [ConfigModule.forRoot({isGlobal:true}), JwtModule.register({global:true}), productModule, UserModule],
-  controllers: [ProductsController],
-  providers: [ProductService],
+  imports: [
+    ConfigModule.forRoot(),
+    UserModule,
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT || '5432'),
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
+      autoLoadEntities: true,
+      synchronize: true, 
+    }),
+  ],
 })
 export class AppModule {}

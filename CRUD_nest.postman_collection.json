@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "9768bdfb-e8b9-47bf-930f-d68027a4a73c",
+		"name": "CRUD_nest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43268308"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJEYWxlck5hemFyb3YiLCJpYXQiOjE3NDg2MDY5MDUsImV4cCI6MTc0ODYwNzgwNX0.SNGNfzd1krH9ZBbXvLwT1g1lWyehJrSKw4xtuSER",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "Daler",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "dlar@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "fullname",
+							"value": "Daler Nazarov",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123445",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/user/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Orange Juice",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "beverages",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "18",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/products",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updating a product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Peanut Butter",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "food",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "11",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/products/3",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleting a product",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

@@ -8,10 +8,9 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Post('register')
-  register(@Body() userDto: UserDto) {
-    return this.userService.register(userDto);
+  register(@Body() registerUserDto: any) {
+    return this.userService.register(registerUserDto);
   }
-
   @Post('login')
   login(@Body() userDto: UserDto) {
     return this.userService.login(userDto);
